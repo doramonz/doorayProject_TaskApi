@@ -22,7 +22,6 @@ public class ProjectMember {
 
 
 
-
     @ManyToOne
     @MapsId("projectId")
     @JoinColumn(name = "project_id")
