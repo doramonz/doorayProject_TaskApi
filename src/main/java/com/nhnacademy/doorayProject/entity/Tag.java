@@ -15,7 +15,6 @@ public class Tag {
     @Id
     @Column(name = "tag_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Integer tagId;
 
     @Column(name = "tag_name")
