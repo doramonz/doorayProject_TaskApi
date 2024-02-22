@@ -26,8 +26,8 @@ public class TagService {
         return tag.get();
     }
 
-    public List<Tag> getAllTag() {
-        List<Tag> tags = tagRepository.findAll();
+    public List<TagNameDto> getAllTag() {
+        List<TagNameDto> tags = tagRepository.findAllByTagName();
         if (tags.isEmpty()) {
             throw new NotFoundTags();
         }
