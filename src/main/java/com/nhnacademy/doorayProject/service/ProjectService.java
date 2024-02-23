@@ -56,13 +56,13 @@ public class ProjectService {
         return responseDto;
     }
 
-    public void deleteProject(Integer projectId) {
+    public boolean deleteProject(Integer projectId) {
         Optional<Project> project = projectRepository.findById(projectId);
         if (Objects.isNull(project.get())) {
-            throw new NullPointerException();
+            return false;
         }
         projectRepository.deleteById(projectId);
-
+        return true;
     }
 
     public ProjectDto getProject(Integer projectId) {
