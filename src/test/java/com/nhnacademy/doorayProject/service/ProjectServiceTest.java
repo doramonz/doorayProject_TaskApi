@@ -1,9 +1,11 @@
 package com.nhnacademy.doorayProject.service;
 
 import com.nhnacademy.doorayProject.dto.ProjectDto;
+import com.nhnacademy.doorayProject.dto.ProjectMemberDto;
 import com.nhnacademy.doorayProject.dto.RequestProjectDto;
 import com.nhnacademy.doorayProject.dto.UpdateResponseDto;
 import com.nhnacademy.doorayProject.entity.Project;
+import com.nhnacademy.doorayProject.entity.ProjectMember;
 import com.nhnacademy.doorayProject.repository.ProjectMemberRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
@@ -96,7 +98,40 @@ class ProjectServiceTest {
 
     }
 
+    @Test
+    void addMemberTest() {
+        ProjectMemberDto memberDto = new ProjectMemberDto();
+        memberDto.setMaster("test1");
+        memberDto.setSlave("test3");
 
+        ProjectMemberDto members = projectService.addMemeber(1, memberDto);
 
+        assertThat(memberDto).isEqualTo(members);
+
+        List<ProjectMember> projectIdMember = projectMemberRepository.findByPkProjectId(1);
+
+        for (ProjectMember member : projectIdMember) {
+            log.info(String.valueOf(member));
+        }
+
+    }
+
+    @Test
+    void deleteMemberTest() {
+        ProjectMemberDto memberDto = new ProjectMemberDto();
+        memberDto.setMaster("test1");
+        memberDto.setSlave("test3");
+
+        ProjectMemberDto members = projectService.addMemeber(1, memberDto);
+
+        assertThat(memberDto).isEqualTo(members);
+
+        projectService.deleteMember(1, memberDto);
+
+        List<ProjectMember> projectMembers = projectMemberRepository.findByPkProjectId(1);
+        for (ProjectMember member : projectMembers) {
+            log.info(String.valueOf(member));
+        }
+    }
 
 }

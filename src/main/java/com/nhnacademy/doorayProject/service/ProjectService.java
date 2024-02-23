@@ -1,6 +1,7 @@
 package com.nhnacademy.doorayProject.service;
 
 import com.nhnacademy.doorayProject.dto.ProjectDto;
+import com.nhnacademy.doorayProject.dto.ProjectMemberDto;
 import com.nhnacademy.doorayProject.dto.RequestProjectDto;
 import com.nhnacademy.doorayProject.dto.UpdateResponseDto;
 import com.nhnacademy.doorayProject.entity.Project;
@@ -70,6 +71,33 @@ public class ProjectService {
         return project;
     }
 
+    public ProjectMemberDto addMemeber(Integer projectId, ProjectMemberDto dto) {
+        List<ProjectMember> projectMembers = projectMemberRepository.findByPkProjectId(projectId);
+        for (ProjectMember member : projectMembers) {
+            if (member.getPk().getUserId().equals(dto.getMaster())) {
+                ProjectMember.Pk pk = new ProjectMember.Pk(dto.getSlave(), projectId);
+                ProjectMember newMember = new ProjectMember();
+                newMember.setPk(pk);
+                newMember.setProject(member.getProject());
+                newMember.setAuth("member");
+                projectMemberRepository.save(newMember);
+                return dto;
+            }
+        }
+        return null;
+    }
 
+    public void deleteMember(Integer projectId, ProjectMemberDto dto) {
+        List<ProjectMember> projectMembers = projectMemberRepository.findByPkProjectId(projectId);
+
+        for (ProjectMember member : projectMembers) {
+                if (member.getPk().getUserId().equals(dto.getSlave())) {
+                    if (member.getAuth().equals("member")) {
+                        projectMemberRepository.deleteById(member.getPk());
+                    }
+                }
+
+        }
+    }
 
 }
