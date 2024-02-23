@@ -3,11 +3,8 @@ package com.nhnacademy.doorayProject.dto;
 import lombok.Data;
 
 @Data
-public class RequestProjectDto {
-
+public class UpdateResponseDto {
     String userId;
-
     String name;
 
-    String status;
 }

@@ -2,6 +2,7 @@ package com.nhnacademy.doorayProject.service;
 
 import com.nhnacademy.doorayProject.dto.ProjectDto;
 import com.nhnacademy.doorayProject.dto.RequestProjectDto;
+import com.nhnacademy.doorayProject.dto.UpdateResponseDto;
 import com.nhnacademy.doorayProject.entity.Project;
 import com.nhnacademy.doorayProject.entity.ProjectMember;
 import com.nhnacademy.doorayProject.repository.ProjectMemberRepository;
@@ -38,17 +39,20 @@ public class ProjectService {
     }
 
 
-    public RequestProjectDto updateProject(Integer projectId, RequestProjectDto editProject) {
+    public UpdateResponseDto updateProject(Integer projectId, RequestProjectDto editProject) {
         Project project = projectRepository.findById(projectId).orElse(null);
         if (Objects.isNull(project)) {
             throw new NullPointerException();
         }
-        project.setName(editProject.name());
+        project.setName(editProject.getName());
         project.setStatus(editProject.getStatus());
 
         projectRepository.save(project);
+        UpdateResponseDto responseDto = new UpdateResponseDto();
+        responseDto.setUserId(editProject.getUserId());
+        responseDto.setName(editProject.getName());
 
-        return editProject;
+        return responseDto;
     }
 
     public void deleteProject(Integer projectId) {

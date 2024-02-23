@@ -11,6 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Table(name = "dooray_project")
+@ToString
 public class Project {
 
 
