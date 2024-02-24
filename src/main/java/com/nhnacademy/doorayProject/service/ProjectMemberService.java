@@ -24,7 +24,6 @@ public class ProjectMemberService {
         for (ProjectMember member : projectMembers) {
             if (member.getPk().getProjectId().equals(projectId) && member.getAuth().equals("admin")) {
                 return true;
-
             }
         }
         return false;

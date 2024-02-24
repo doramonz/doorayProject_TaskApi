@@ -40,17 +40,18 @@ public class ProjectService {
     }
 
 
-    public UpdateResponseDto updateProject(Integer projectId, RequestProjectDto editProject) {
+    public UpdateResponseDto updateProject(Integer projectId, RequestProjectDto editProject,String userId) {
         Project project = projectRepository.findById(projectId).orElse(null);
         if (Objects.isNull(project)) {
             throw new NullPointerException();
         }
+
         project.setName(editProject.getName());
         project.setStatus(editProject.getStatus());
 
         projectRepository.save(project);
         UpdateResponseDto responseDto = new UpdateResponseDto();
-        responseDto.setUserId(editProject.getUserId());
+        responseDto.setUserId(userId);
         responseDto.setName(editProject.getName());
 
         return responseDto;

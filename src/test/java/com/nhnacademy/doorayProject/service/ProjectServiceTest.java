@@ -83,11 +83,11 @@ class ProjectServiceTest {
     @Test
     void updateTest() {
         RequestProjectDto requestProjectDto = new RequestProjectDto();
-        requestProjectDto.setUserId("test");
+
         requestProjectDto.setName("testUpdate");
         requestProjectDto.setStatus("할일");
 
-      UpdateResponseDto responseDto = projectService.updateProject(10, requestProjectDto);
+      UpdateResponseDto responseDto = projectService.updateProject(10, requestProjectDto,"test1");
         ProjectDto project = projectService.getProject(10);
 
         assertThat(responseDto.getUserId()).isEqualTo("test");
