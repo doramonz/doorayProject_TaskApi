@@ -21,23 +21,21 @@ public class CommentServiceImpl implements CommentService {
     private CommentRepository commentRepository;
     @Override
     public List<Comment> getComments(Integer taskId) {
-        Task task;
-        if((task = commentRepository.findTaskByTaskId(taskId))== null){
-            throw new NotFoundTaskException();
+        if(commentRepository.findCommentByTask_TaskId(taskId)== null){
+            throw new NotFoundCommentException();
         }
         // taskId가 같은 거 다 들고오기 findById로 알아보기
-        return commentRepository.findAllByTask(task);
+        return commentRepository.findAllByTask_TaskId(taskId);
     }
 
     @Override
     public CommentDto addComment(Integer taskId, CommentDto commentDto) {
         // 차피 추가로 comment 다는 거랏서 taskId에 따라 comment를 달기만 하면 된다
-        Task task;
-        if((task = commentRepository.findTaskByTaskId(taskId))== null){
-            throw new NotFoundTaskException();
+        Comment comment;
+        if((comment = commentRepository.findCommentByTask_TaskId(taskId))== null){
+            throw new NotFoundCommentException();
         }
-        Comment comment = new Comment();
-        comment.setTask(task);
+//        Comment comment = new Comment();
         comment.setCommentContent(commentDto.getCommentContent());
         comment.setUserId(commentDto.getUserId());
         Comment newComment = commentRepository.save(comment);
