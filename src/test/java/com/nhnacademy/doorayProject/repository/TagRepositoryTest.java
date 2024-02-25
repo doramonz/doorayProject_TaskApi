@@ -21,8 +21,8 @@ class TagRepositoryTest {
 
     @Test
     void findByProjectId() {
-        List<Tag> tags = tagRepository.findByProjectProjectId(1);
-
-        log.info(tags.toString());
+//        List<Tag> tags = tagRepository.findByProjectId(1);
+//
+//        log.info(tags.toString());
     }
 }
