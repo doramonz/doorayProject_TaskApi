@@ -1,4 +1,4 @@
-package com.nhnacademy.doorayProject.service.impl;
+package com.nhnacademy.doorayProject.service;
 
 import com.nhnacademy.doorayProject.dto.MileStoneIdNameDto;
 import com.nhnacademy.doorayProject.dto.MileStoneIdNameListDto;
@@ -7,6 +7,7 @@ import com.nhnacademy.doorayProject.entity.MileStone;
 import com.nhnacademy.doorayProject.entity.Project;
 import com.nhnacademy.doorayProject.exeption.MileStoneNotFoundException;
 import com.nhnacademy.doorayProject.repository.MileStoneRepository;
+import com.nhnacademy.doorayProject.service.impl.MileStoneServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -20,7 +21,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-class MileStoneServiceImplTest {
+class MileStoneServiceTest {
     @Mock
     private MileStoneRepository mileStoneRepository;
 
