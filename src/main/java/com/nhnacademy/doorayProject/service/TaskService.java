@@ -17,4 +17,6 @@ public interface TaskService {
     TaskUpdateDto updateTask(Integer taskId, String userId, TaskDto taskDto);
 
     void deleteTask(Integer taskId, String userId);
+
+    TaskUpdateDto postTask(Integer projectId, String userId, TaskDto taskDto);
 }

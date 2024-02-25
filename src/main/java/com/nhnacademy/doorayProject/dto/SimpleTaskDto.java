@@ -1,12 +1,13 @@
 package com.nhnacademy.doorayProject.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
-
-public interface SimpleTaskDto {
-    Integer getTaskId();
-    String getTaskTitle();
-    String getUserId();
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class SimpleTaskDto {
+    Integer taskId;
+    String taskTitle;
+    String userId;
 }

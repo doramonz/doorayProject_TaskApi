@@ -1,11 +1,13 @@
 package com.nhnacademy.doorayProject.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-public interface TaskDto {
-    String getTaskTile();
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+public class TaskDto {
+    String taskTile;
 
-    String getTaskContent();
+    String taskContent;
 }
