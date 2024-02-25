@@ -7,11 +7,12 @@ import com.nhnacademy.doorayProject.entity.Task;
 import com.nhnacademy.doorayProject.service.TaskService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequiredArgsConstructor
 public class TaskController {
     private final TaskService taskService;
