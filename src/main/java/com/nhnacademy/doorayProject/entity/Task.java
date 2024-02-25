@@ -13,6 +13,8 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "dooray_task")
 @ToString
+@Getter
+@Setter
 @Data
 public class Task {
     public enum Status {
