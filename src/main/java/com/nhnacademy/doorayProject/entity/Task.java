@@ -11,6 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "dooray_task")
+@ToString
 public class Task {
     public enum Status {
         할일, 진행중, 완료
@@ -19,12 +20,18 @@ public class Task {
     @Column(name = "task_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer taskId;
-    @Column(name = "project_id")
-    private Integer projectId;
+
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private Project project;
+
     @Column(name = "user_id")
     private String userId;
-    @Column(name = "milestone_id")
-    private Integer mileStoneId;
+
+    @ManyToOne
+    @JoinColumn(name = "milestone_id")
+    private MileStone mileStoneId;
+
     @Column(name = "tag_id")
     private String taskTitle;
     @Column(name = "task_content")
