@@ -41,14 +41,6 @@ public class Task {
     private String taskContent;
     @Enumerated(EnumType.STRING)
     private Status status;
-    @Column(name = "create_at")
-    private LocalDateTime createAt;
-    @Column(name = "end_date")
-    private LocalDateTime endDate;
 
-    @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "project_id")
-    private Project project;
 
 }
