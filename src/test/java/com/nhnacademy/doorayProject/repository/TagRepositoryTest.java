@@ -1,5 +1,7 @@
 package com.nhnacademy.doorayProject.repository;
 
+import com.nhnacademy.doorayProject.dto.ProjectDto;
+import com.nhnacademy.doorayProject.entity.Project;
 import com.nhnacademy.doorayProject.entity.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -18,11 +20,20 @@ class TagRepositoryTest {
 
     @Autowired
     private TagRepository tagRepository;
+    @Autowired
+    private ProjectRepository projectRepository;
 
     @Test
     void findByProjectId() {
-//        List<Tag> tags = tagRepository.findByProjectId(1);
-//
-//        log.info(tags.toString());
+        ProjectDto project =  projectRepository.findByProjectId(1);
+        Project project1 = new Project();
+        project1.setProjectId(1);
+        project1.setName(project.getName());
+        project1.setStatus(project.getStatus());
+
+        List<Tag> tags = tagRepository.findByProjectId(project1);
+
+        log.info(tags.toString());
+
     }
 }

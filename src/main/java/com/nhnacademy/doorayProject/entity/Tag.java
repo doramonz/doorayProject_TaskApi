@@ -11,6 +11,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Table(name = "dooray_tag")
+@ToString
 public class Tag {
     @Id
     @Column(name = "tag_id")
