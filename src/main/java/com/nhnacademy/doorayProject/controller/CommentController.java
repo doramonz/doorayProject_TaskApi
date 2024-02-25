@@ -5,6 +5,7 @@ import com.nhnacademy.doorayProject.dto.CommentUpdateDto;
 import com.nhnacademy.doorayProject.entity.Comment;
 import com.nhnacademy.doorayProject.service.CommentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,22 +22,23 @@ public class CommentController {
     }
 
     @GetMapping("/{taskId}/comments")
-    public List<Comment> getComments(@RequestParam("taskId")Integer taskId){
+    public List<Comment> getComments(@PathVariable("taskId")Integer taskId){
         return commentService.getComments(taskId);
     }
 
     @PostMapping("/{taskId}/comments")
-    public CommentDto createComment(@RequestParam("taskId")Integer taskId, @ModelAttribute CommentDto commentDto){
+    @ResponseStatus(HttpStatus.CREATED)
+    public CommentDto createComment(@PathVariable("taskId")Integer taskId, @RequestBody CommentDto commentDto){
         return commentService.addComment(taskId, commentDto);
     }
 
     @PutMapping("/comments/{commentId}/update")
-    public CommentUpdateDto updateComment(@RequestParam("commentId")Integer commentId, @ModelAttribute CommentUpdateDto commentUpdateDto) {
+    public CommentUpdateDto updateComment(@PathVariable("commentId")Integer commentId, @RequestBody CommentUpdateDto commentUpdateDto) {
         return commentService.updateCommemt(commentId, commentUpdateDto);
     }
 
     @DeleteMapping("/comments/{commentId}/delete")
-    public void deleteComment(@RequestParam("commentId")Integer commentId) {
+    public void deleteComment(@PathVariable("commentId")Integer commentId) {
         commentService.deleteComment(commentId);
     }
 }

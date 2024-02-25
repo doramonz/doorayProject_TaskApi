@@ -8,5 +8,4 @@ import java.util.List;
 
 public interface CommentRepository extends JpaRepository<Comment, Integer> {
     List<Comment> findAllByTask_TaskId(Integer taskId);
-    Comment findCommentByTask_TaskId(Integer taskId);
 }
