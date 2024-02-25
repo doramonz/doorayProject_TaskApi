@@ -1,8 +1,11 @@
 package com.nhnacademy.doorayProject.entity;
 
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @EqualsAndHashCode
 @Getter
@@ -38,5 +41,14 @@ public class Task {
     private String taskContent;
     @Enumerated(EnumType.STRING)
     private Status status;
+    @Column(name = "create_at")
+    private LocalDateTime createAt;
+    @Column(name = "end_date")
+    private LocalDateTime endDate;
+
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "project_id")
+    private Project project;
 
 }

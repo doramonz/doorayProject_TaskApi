@@ -1,0 +1,28 @@
+GET localhost:8081/projects/milestones/11
+
+###
+
+GET localhost:8081/projects/1/milestones/list
+
+###
+
+POST localhost:8081/projects/1/milestones/upload
+Content-Type: application/json
+
+{
+  "mileStoneName": "Milestone 1"
+}
+
+###
+
+PUT localhost:8081/projects/milestones/1/update
+Content-Type: application/json
+
+{
+  "mileStoneName": "Milestone 2"
+}
+
+###
+
+DELETE localhost:8081/projects/milestones/1/delete
+
