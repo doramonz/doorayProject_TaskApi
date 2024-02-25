@@ -12,6 +12,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Table(name = "dooray_project_member")
+@ToString
 public class ProjectMember {
 
     @EmbeddedId
@@ -33,6 +34,7 @@ public class ProjectMember {
     @Setter
     @Getter
     @Embeddable
+    @ToString
     public static class Pk implements Serializable {
 
         @Column(name = "user_id")
