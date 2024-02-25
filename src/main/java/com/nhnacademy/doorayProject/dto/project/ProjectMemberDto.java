@@ -1,4 +1,4 @@
-package com.nhnacademy.doorayProject.dto;
+package com.nhnacademy.doorayProject.dto.project;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class MileStoneNameDto {
-    private String mileStoneName;
+public class ProjectMemberDto {
+    private String master;
+    private String slave;
 }

@@ -1,6 +1,8 @@
 package com.nhnacademy.doorayProject.entity;
 
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 
@@ -19,8 +21,6 @@ public class Task {
     @Column(name = "task_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer taskId;
-    @Column(name = "project_id")
-    private Integer projectId;
     @Column(name = "user_id")
     private String userId;
     @Column(name = "milestone_id")
@@ -31,5 +31,10 @@ public class Task {
     private String taskContent;
     @Enumerated(EnumType.STRING)
     private Status status;
+
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "project_id")
+    private Project project;
 
 }

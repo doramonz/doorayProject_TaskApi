@@ -1,9 +1,9 @@
 package com.nhnacademy.doorayProject.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nhnacademy.doorayProject.dto.MileStoneIdNameDto;
-import com.nhnacademy.doorayProject.dto.MileStoneIdNameListDto;
-import com.nhnacademy.doorayProject.dto.MileStoneNameDto;
+import com.nhnacademy.doorayProject.dto.milestone.MileStoneIdNameDto;
+import com.nhnacademy.doorayProject.dto.milestone.MileStoneIdNameListDto;
+import com.nhnacademy.doorayProject.dto.milestone.MileStoneNameDto;
 import com.nhnacademy.doorayProject.exeption.MileStoneNotFoundException;
 import com.nhnacademy.doorayProject.service.MileStoneService;
 import org.junit.jupiter.api.Test;
@@ -17,7 +17,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 

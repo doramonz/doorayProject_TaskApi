@@ -1,7 +1,7 @@
 package com.nhnacademy.doorayProject.controller;
 
-import com.nhnacademy.doorayProject.dto.MileStoneIdNameListDto;
-import com.nhnacademy.doorayProject.dto.MileStoneNameDto;
+import com.nhnacademy.doorayProject.dto.milestone.MileStoneIdNameListDto;
+import com.nhnacademy.doorayProject.dto.milestone.MileStoneNameDto;
 import com.nhnacademy.doorayProject.service.MileStoneService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

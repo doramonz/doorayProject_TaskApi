@@ -1,6 +1,8 @@
 package com.nhnacademy.doorayProject.entity;
 
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -32,6 +34,7 @@ public class TaskTagMapping {
     private Task task;
 
     @MapsId("tagId")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "tag_id")
     @ManyToOne
     private Tag tag;

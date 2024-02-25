@@ -1,9 +1,7 @@
 package com.nhnacademy.doorayProject.service;
 
-import com.nhnacademy.doorayProject.dto.MileStoneIdNameListDto;
-import com.nhnacademy.doorayProject.dto.MileStoneNameDto;
-
-import java.util.List;
+import com.nhnacademy.doorayProject.dto.milestone.MileStoneIdNameListDto;
+import com.nhnacademy.doorayProject.dto.milestone.MileStoneNameDto;
 
 public interface MileStoneService {
     MileStoneNameDto getMileStoneName(Integer mileStoneId);

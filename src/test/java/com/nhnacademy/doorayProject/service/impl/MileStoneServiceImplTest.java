@@ -1,8 +1,8 @@
 package com.nhnacademy.doorayProject.service.impl;
 
-import com.nhnacademy.doorayProject.dto.MileStoneIdNameDto;
-import com.nhnacademy.doorayProject.dto.MileStoneIdNameListDto;
-import com.nhnacademy.doorayProject.dto.MileStoneNameDto;
+import com.nhnacademy.doorayProject.dto.milestone.MileStoneIdNameDto;
+import com.nhnacademy.doorayProject.dto.milestone.MileStoneIdNameListDto;
+import com.nhnacademy.doorayProject.dto.milestone.MileStoneNameDto;
 import com.nhnacademy.doorayProject.entity.MileStone;
 import com.nhnacademy.doorayProject.entity.Project;
 import com.nhnacademy.doorayProject.exeption.MileStoneNotFoundException;

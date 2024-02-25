@@ -1,0 +1,49 @@
+POST localhost:8081/projects/test2/upload
+Content-Type: application/json
+
+{
+  "name": "test123",
+  "status": "close"
+}
+
+###
+
+GET localhost:8081/projects/test1/list
+
+###
+
+PUT localhost:8081/projects/20/update/test1
+Content-Type: application/json
+
+{
+  "name": "test12345",
+  "status": "open"
+}
+
+###
+
+DELETE localhost:8081/projects/20/delete/test1
+
+###
+
+GET localhost:8081/projects/20
+
+###
+
+POST localhost:8081/projects/21/addMember
+Content-Type: application/json
+
+{
+  "master": "test1",
+  "slave": "test2"
+}
+
+###
+
+DELETE localhost:8081/projects/20/deleteMember
+Content-Type: application/json
+
+{
+  "master": "test1",
+    "slave": "test2"
+}

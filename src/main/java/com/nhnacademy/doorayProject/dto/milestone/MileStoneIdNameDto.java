@@ -1,4 +1,4 @@
-package com.nhnacademy.doorayProject.dto;
+package com.nhnacademy.doorayProject.dto.milestone;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
