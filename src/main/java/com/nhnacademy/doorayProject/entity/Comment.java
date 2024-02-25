@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Setter
 @Getter
 @EqualsAndHashCode
+
 @Table(name = "dooray_commnet")
 public class Comment {
     @Id
@@ -17,7 +18,7 @@ public class Comment {
      private Integer commentId;
 
     @Column(name = "user_id")
-    private Integer user;
+    private String userId;
 
     @ManyToOne
     @JoinColumn(name = "task_id")
@@ -26,4 +27,5 @@ public class Comment {
 
     @Column(name = "comment_content")
     private String commentContent;
+
 }
