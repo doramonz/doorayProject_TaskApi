@@ -8,13 +8,12 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @EqualsAndHashCode
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "dooray_task")
 @ToString
+@Data
 public class Task {
     public enum Status {
         할일, 진행중, 완료
@@ -23,10 +22,6 @@ public class Task {
     @Column(name = "task_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer taskId;
-
-    @ManyToOne
-    @JoinColumn(name = "project_id")
-    private Project project;
 
     @Column(name = "user_id")
     private String userId;
@@ -42,5 +37,13 @@ public class Task {
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    @Column(name = "create_at")
+    private LocalDateTime createAt;
+    @Column(name = "end_date")
+    private LocalDateTime endDate;
 
+    @ManyToOne
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "project_id")
+    private Project project;
 }
