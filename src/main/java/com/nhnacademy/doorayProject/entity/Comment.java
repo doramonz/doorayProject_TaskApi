@@ -1,10 +1,11 @@
 package com.nhnacademy.doorayProject.entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
 import javax.persistence.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Setter
 @Getter
@@ -17,7 +18,7 @@ public class Comment {
      private Integer commentId;
 
     @Column(name = "user_id")
-    private Integer user;
+    private String user;
 
     @ManyToOne
     @JoinColumn(name = "task_id")
