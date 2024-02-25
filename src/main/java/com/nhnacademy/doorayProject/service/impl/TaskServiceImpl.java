@@ -22,7 +22,8 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public TaskInfoDto getTaskInfo(Integer taskId) {
-        return taskRepository.getTaskInfo(taskId);
+        Task task = taskRepository.findById(taskId).orElseThrow(TaskNotFoundException::new);
+        return new TaskInfoDto(task.getTaskTitle(), task.getTaskContent(), task.getUserId(), task.getStatus(), task.getCreateAt(), task.getEndDate(),task.getMileStone());
     }
 
     @Override
@@ -37,7 +38,7 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public void addTask(Integer projectId, String userId, TaskUploadDto taskUploadDto) {
-        Task task = new Task(null, userId,null, taskUploadDto.getTaskTitle(),taskUploadDto.getTaskContent(), Task.Status.할일, LocalDateTime.now(), taskUploadDto.getEndDate(), new Project(projectId,null,null));
+        Task task = new Task(null, userId, taskUploadDto.getTaskTitle(),taskUploadDto.getTaskContent(), Task.Status.할일, LocalDateTime.now(), taskUploadDto.getEndDate(), new Project(projectId,null,null),null);
         taskRepository.save(task);
     }
 

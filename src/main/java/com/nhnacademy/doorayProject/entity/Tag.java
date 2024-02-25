@@ -25,7 +25,7 @@ public class Tag {
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "project_id")
-    private Project projectId;
+    private Project project;
 
 
 }

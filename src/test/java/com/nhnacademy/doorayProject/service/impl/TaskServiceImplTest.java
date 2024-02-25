@@ -16,7 +16,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,12 +30,23 @@ class TaskServiceImplTest {
     private TaskServiceImpl taskService;
 
     @Test
-    void getTaskInfo() {
+    void getTaskInfo_exist() {
         Integer taskId = 1;
+        String taskTitle = "taskTitle";
         TaskInfoDto taskInfoDto = new TaskInfoDto();
-        Mockito.when(taskRepository.getTaskInfo(taskId)).thenReturn(taskInfoDto);
-        Assertions.assertEquals(taskInfoDto, taskService.getTaskInfo(taskId));
-        Mockito.verify(taskRepository).getTaskInfo(taskId);
+        Task task = new Task();
+        task.setTaskTitle(taskTitle);
+        taskInfoDto.setTitle(taskTitle);
+        Mockito.doReturn(Optional.of(task)).when(taskRepository).findById(taskId);
+        Assertions.assertEquals(taskInfoDto.getTitle(), taskService.getTaskInfo(taskId).getTitle());
+        Mockito.verify(taskRepository).findById(taskId);
+    }
+
+    @Test
+    void getTaskInfo_notExist() {
+        Integer taskId = 1;
+        Mockito.doReturn(Optional.empty()).when(taskRepository).findById(taskId);
+        Assertions.assertThrows(TaskNotFoundException.class, () -> taskService.getTaskInfo(taskId));
     }
 
     @Test

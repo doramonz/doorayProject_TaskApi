@@ -1,0 +1,27 @@
+GET localhost:8081/projects/tags/1
+
+###
+
+GET localhost:8081/projects/1/tags/list
+
+###
+
+POST localhost:8081/projects/1/tags/upload
+Content-Type: application/json
+
+{
+  "tagName": "tag1212"
+}
+
+###
+
+PUT localhost:8081/projects/tags/2/update
+Content-Type: application/json
+
+{
+  "tagName": "tag1212333"
+}
+
+###
+
+DELETE localhost:8081/projects/tags/2/delete

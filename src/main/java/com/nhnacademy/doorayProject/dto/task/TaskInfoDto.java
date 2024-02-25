@@ -1,5 +1,6 @@
 package com.nhnacademy.doorayProject.dto.task;
 
+import com.nhnacademy.doorayProject.entity.MileStone;
 import com.nhnacademy.doorayProject.entity.Task;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,5 +20,5 @@ public class TaskInfoDto {
     private Task.Status status;
     private LocalDateTime createAt;
     private LocalDateTime endDate;
-    private Integer milestoneId;
+    private MileStone mileStone;
 }
