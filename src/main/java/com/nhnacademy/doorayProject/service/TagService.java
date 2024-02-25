@@ -2,63 +2,22 @@ package com.nhnacademy.doorayProject.service;
 
 import com.nhnacademy.doorayProject.dto.TagNameDto;
 import com.nhnacademy.doorayProject.entity.Tag;
-import com.nhnacademy.doorayProject.exeption.NotFoundTags;
-import com.nhnacademy.doorayProject.repository.TagRepository;
-import org.springframework.stereotype.Service;
+import com.sun.xml.bind.v2.runtime.unmarshaller.TagName;
 
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
-@Service
-public class TagService {
-    private final TagRepository tagRepository;
+public interface TagService {
 
-    public TagService(TagRepository tagRepository) {
-        this.tagRepository = tagRepository;
-    }
 
-    public Tag getTag(int tagId) {
-        Optional<Tag> tag = tagRepository.findById(tagId);
-        if (tag.isEmpty()) {
-            throw new NotFoundTags();
-        }
-        return tag.get();
-    }
+    TagNameDto getTag(Integer projectId,Integer tagId);
 
-    public List<TagNameDto> getAllTag() {
-        List<TagNameDto> tags = tagRepository.findAllByTagName();
-        if (tags.isEmpty()) {
-            throw new NotFoundTags();
-        }
-        return tags;
-    }
+    List<TagNameDto> getTags(Integer projectId);
 
-    public TagNameDto addTag(Tag tag) {
-        if (Objects.isNull(tag)) {
-            throw new IllegalStateException();
-        }
-        TagNameDto tagNameDto = (TagNameDto) tagRepository.save(tag);
+    void addTag(Integer projectId, Tag tag);
 
-        return tagNameDto;
-    }
+    TagNameDto updateTag(Integer proejctId, Integer tagId,Tag tag);
 
-    public TagNameDto modifyTag(int tagId,String tagName) {
-        Optional<Tag> tag = tagRepository.findById(tagId);
-        if (tag.isEmpty()) {
-            throw new NotFoundTags();
-        }
-        Tag newTag = new Tag();
-        newTag.setTagId(tagId);
-        newTag.setTagName(tagName);
-        newTag.setProjectId(tag.get().getProjectId());
-        TagNameDto tagNameDto = (TagNameDto) tagRepository.save(newTag);
+    void deleteTag(Integer proejctId, Integer tagId);
 
-        return tagNameDto;
-    }
 
-    public void deleteTag(int tagId) {
-        tagRepository.deleteById(tagId);
-
-    }
 }

@@ -1,14 +1,12 @@
 package com.nhnacademy.doorayProject.controller;
 
 import com.nhnacademy.doorayProject.dto.TagNameDto;
-import com.nhnacademy.doorayProject.service.TagService;
+import com.nhnacademy.doorayProject.service.impl.TagServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/projects")
@@ -16,12 +14,9 @@ import java.util.List;
 
 public class TagController {
 
-    private final TagService tagService;
+    private final TagServiceImpl tagService;
 
-    @GetMapping("{tagId}")
-    public TagNameDto getTag(@PathVariable(name = "tagId") Integer tagId) {
-        return (TagNameDto) tagService.getTag(tagId);
-    }
+
 
 
 

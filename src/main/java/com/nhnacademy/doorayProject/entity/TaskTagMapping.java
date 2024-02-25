@@ -22,6 +22,7 @@ CREATE TABLE dooray_task_tag_mapping
 @AllArgsConstructor
 @EqualsAndHashCode
 @Table(name = "dooray_task_tag_mapping")
+@ToString
 public class TaskTagMapping {
     @EmbeddedId
     private Pk pk;
@@ -43,6 +44,7 @@ public class TaskTagMapping {
     @Setter
     @AllArgsConstructor
     @NoArgsConstructor
+    @ToString
     public static class Pk implements Serializable {
 
         private Integer taskId;
