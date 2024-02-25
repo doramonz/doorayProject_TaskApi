@@ -32,7 +32,7 @@ public class Task {
     @JoinColumn(name = "milestone_id")
     private MileStone mileStoneId;
 
-    @Column(name = "tag_id")
+    @Column(name = "task_title")
     private String taskTitle;
     @Column(name = "task_content")
     private String taskContent;
