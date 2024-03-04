@@ -22,8 +22,12 @@ public class Task {
     @Column(name = "task_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer taskId;
+    @Column(name = "project_id")
+    private Integer projectId;
     @Column(name = "user_id")
     private String userId;
+    @Column(name = "milestone_id")
+    private Integer mileStoneId;
     @Column(name = "task_title")
     private String taskTitle;
     @Column(name = "task_content")
@@ -39,9 +43,5 @@ public class Task {
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "project_id")
     private Project project;
-
-    @ManyToOne
-    @JoinColumn(name = "milestone_id")
-    private MileStone mileStone;
 
 }
